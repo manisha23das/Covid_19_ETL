@@ -40,13 +40,21 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
-          # add processed CSV (do not add DB)
+
+          # Add processed CSV
           if [ -d processed_data ]; then
             git add processed_data/*.csv || true
           fi
+
+          # If there are changes, commit and push
           if ! git diff --staged --quiet; then
             git commit -m "Automated ETL: add processed CSV - $(date -u +"%Y-%m-%d %H:%M:%S UTC")"
-            git push origin HEAD:${{ github.ref_name }}
+
+            # Fix for non-fast-forward error
+            git pull origin main --rebase
+
+            git push origin HEAD:main
           else
             echo "No processed CSV changes to commit"
           fi
+
