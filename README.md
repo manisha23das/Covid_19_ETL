@@ -44,11 +44,13 @@ Commits updated data back into the repository
 
 ## Project Structure
 covid_19_etl/
+
 │
 ├── .github/
 │   └── workflows/
 │       └── run_pipeline.yml          # GitHub Actions workflow (automation)
 │
+
 ├── data_collection/
 │   ├── raw_data/                     # Local folder where collect_data.py saves raw JSON files
 │   │   └── covid_data_<timestamp>.json
