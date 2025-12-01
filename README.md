@@ -52,8 +52,7 @@ covid_19_etl/
 │
 
 ├── data_collection/
-│   
-       ├── raw_data/                     # Local folder where collect_data.py saves raw JSON files
+│   ├── raw_data/                     # Local folder where collect_data.py saves raw JSON files
 │   │   └── covid_data_<timestamp>.json
 │   └── collect_data.py               # Script: call API → save raw JSON (returns filename)
 │
@@ -61,20 +60,28 @@ covid_19_etl/
 ├── data_processing/
 │   └── process_data.py               # Script: read latest JSON from repo/GitHub → convert to CSV
 │
+
 ├── data_storage/
 │   └── upload_to_github.py           # Script: upload raw JSON files (or processed CSV) to GitHub via API
 │
+
 ├── processed_data/
 │   └── processed_covid_data.csv      # Processed CSV produced by process_data.py
 │
+
 ├── database_loader.py                # Script: load processed CSV into local SQLite DB (covid_database.db)
 │
+
 ├── run_pipeline.py                   # Orchestrator: calls collect → upload → process → load
 │
+
 ├── covid_database.db                 # Local SQLite DB
 │
+
 ├── requirements.txt                  # pip dependencies: requests, pandas, etc.
+
 ├── .gitignore
+
 └── README.md
 
 ## Key Learnings
