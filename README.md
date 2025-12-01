@@ -52,10 +52,12 @@ covid_19_etl/
 │
 
 ├── data_collection/
-│   ├── raw_data/                     # Local folder where collect_data.py saves raw JSON files
+│   
+       ├── raw_data/                     # Local folder where collect_data.py saves raw JSON files
 │   │   └── covid_data_<timestamp>.json
 │   └── collect_data.py               # Script: call API → save raw JSON (returns filename)
 │
+
 ├── data_processing/
 │   └── process_data.py               # Script: read latest JSON from repo/GitHub → convert to CSV
 │
